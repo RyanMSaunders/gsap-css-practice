@@ -2,6 +2,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { CustomEase } from "gsap/all";
 import styles from "./lesson-one-assignment.module.css"; // Adjust the path as necessary
+import { useRef } from "react";
 
 /*
 INSTRUCTIONS
@@ -15,64 +16,32 @@ Happy creating!
 
 */
 const LessonOneAssignment = () => {
+  const containerRef = useRef(null)
+
  useGSAP(() => {
-   // Note: GSAP can't directly target pseudo-elements like ::before
-   // You'll need to create an actual element or use a different approach
-   gsap.to(`.${styles.squareTop}`, {
-     x: "50vw",
-     rotation: 360,
-     borderRadius: "100%",
-     duration: 2, //  animate it back to its original position, rotation, and shape over 2 seconds,
-     repeat: -1, // repeat the animation forever
-     yoyo: true, // meaning it reverses direction each time
-   });
+  const container = containerRef.current;
+  const square = container.querySelector(`${styles.square}`)
 
-   gsap.to(`.${styles.squareMiddle}`, {
-     x: "50vw",
-     rotation: 360,
-     borderRadius: "100%",
-     duration: 2, //  animate it back to its original position, rotation, and shape over 2 seconds,
-     ease: "power1.inOut",
-     repeat: -1, // repeat the animation forever
-     yoyo: true, // meaning it reverses direction each time
-   });
-   gsap.to(`.${styles.squareBottom}`, {
-     x: "50vw",
-     rotation: 360,
-     borderRadius: "100%",
-     duration: 2, //  animate it back to its original position, rotation, and shape over 2 seconds,
-     ease: CustomEase.create("custom", "M0,0 C0.366,0.118 0,1.43 1,1 "),
-     repeat: -1, // repeat the animation forever
-     yoyo: true, // meaning it reverses direction each time
-   });
+  if (!container || !square ) return;
 
-   // both properties animated with one tween
-   gsap.from(`.${styles.squareLeft}`, {
-    rotation: 360,        // Two full rotations
-    scale: 0,          // Scale up to 150%
-    duration: 2,
-    ease: CustomEase.create("custom", "M0,0 C0.366,0.118 0,1.43 1,1 "),
-    repeat: -1,
-    // yoyo: true,
-  });
+  const containerWidth = container.offsetWidth;
+  const containerHeight = container.offsetHeight;
+  const squareHeight = container.offsetHeight;
+  const squareSize = squareHeight;
+
+  // Movement boundaries
+  const maxX = containerWidth - squareSize;
+  const maxY = containerHeight - squareSize;
+
+  // Initial position and velocity
+  let currentX = 10;
+  let currentY = 10;
+  let velocityX = 3;
+  let velocityY = 2;
+
+  const timeline = gsap.timeline({ repeat: -1})
+
    
-  // // Rotation with one ease
-  //   gsap.to(`.${styles.squareLeft}`, {
-  //     rotation: 360,
-  //     duration: 3,
-  //     ease: "power2.in",
-  //     repeat: -1,
-  //     yoyo: true,
-  //   });
-
-  //   // Scale with different ease
-  //   gsap.to(`.${styles.squareLeft}`, {
-  //     scale: 0,
-  //     duration: 3,
-  //     ease: "power2.inOut",
-  //     repeat: -1,
-  //     yoyo: true,
-  //   });
  });
 
  return (
@@ -84,7 +53,7 @@ const LessonOneAssignment = () => {
        </article>
        <article className={`${styles.molecule} ${styles.middle}`}>
          <div className={`${styles.atom} ${styles.ml}`}></div>
-         <div className={`${styles.atom} ${styles.mc}`}>
+         <div className={`${styles.atom} ${styles.mc}`} ref={containerRef}>
           <div className={styles.square}></div>
           
          </div>
