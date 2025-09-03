@@ -20,14 +20,13 @@ const LessonOneAssignment = () => {
 
  useGSAP(() => {
   const container = containerRef.current;
-  const square = container.querySelector(`${styles.square}`)
+  const square = container.querySelector(`.${styles.square}`)
 
   if (!container || !square ) return;
 
   const containerWidth = container.offsetWidth;
   const containerHeight = container.offsetHeight;
-  const squareHeight = container.offsetHeight;
-  const squareSize = squareHeight;
+  const squareSize = square.offsetWidth; 
 
   // Movement boundaries
   const maxX = containerWidth - squareSize;
@@ -41,8 +40,40 @@ const LessonOneAssignment = () => {
 
   const timeline = gsap.timeline({ repeat: -1})
 
+  const createBounceAnimation = () => {
+    // calculate next position
+    currentX += velocityX;
+    currentY += velocityY;
+
+    // Check collisions, reverse direction
+    // Check collision: If the square hits the left edge (≤ 0) or right edge (≥ maxX)
+    // Reverse direction: Flip the horizontal velocity (3 becomes -3, or -3 becomes 3)
+    // Fix position: Clamp the square back inside bounds in case it went too far
+    // So when the square hits a wall, it bounces back and stays within the container boundaries.
+    if (currentX <= 0 || currentX >= maxX) {
+      velocityX = -velocityX;
+      //Math.min(maxX, currentX) = "Pick the smaller of maxX or currentX" Math.max(0, result) = "Pick the larger of 0 or that result"
+      currentX = Math.max(0, Math.min(maxX, currentX))
+    }
+    if (currentY <= 0 || currentY >= maxY) {
+      velocityY = -velocityY;
+      currentY = Math.max(0, Math.min(maxY, currentY))
+    }
+
+    timeline.to(square, {
+      x: currentX,
+      y: currentY,
+      duration: 0.016,
+      ease: 'power1.inOut'
+    })
+
+    timeline.call(createBounceAnimation)
+  };
+
+  createBounceAnimation();
+
    
- });
+ }, { scope: containerRef});
 
  return (
    <div className={styles.page}>

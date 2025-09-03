@@ -49,15 +49,11 @@
 .atom.mc {
  background-color: #F1E1BE;
  flex-basis: 100%;
- display: grid;
- place-items: center;
+
 }
 .square {
  aspect-ratio: 1 / 1;
  width: 15%;
- /* top: 31.3%;
- right: 32.5%; */
- /* background-color: #7C7565; */
  background-color: #7C7565;
 }
 
