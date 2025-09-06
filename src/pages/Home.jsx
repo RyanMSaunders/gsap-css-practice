@@ -43,6 +43,11 @@ const animations = [
    description: "Learn how to animate text with GSAP.",
    path: "/gsaptext",
  },
+  {
+   title: "Aug 28 CSS Battle",
+   description: "GSAP CSS Practice.",
+   path: "/cssbattle-aug28",
+ },
  {
    title: "Smooth Animator Speed Graph Visualizer",
    description: "Learn how to animate with GSAP.",
@@ -59,9 +64,9 @@ const animations = [
    path: "/lesson-one-assignment",
  },
  {
-   title: "Aug 28 CSS Battle",
-   description: "GSAP CSS Practice.",
-   path: "/cssbattle-aug28",
+   title: "Smoth Animator Lesson 2",
+   description: "Learn how to animate with GSAP.",
+   path: "/lesson-two",
  },
 ];
 

@@ -15,6 +15,7 @@ import CSSBattleAug28 from "./gsap-practice/cssbattle-aug28/cssbattle-aug28";
 import LessonOne from "./smooth-animator/lesson-one/lesson-one";
 import GSAPSpeedVisualizer from "./smooth-animator/speed-graph-visualizer/speedGraphVisualizer";
 import LessonOneAssignment from "./smooth-animator/lesson-one-assignment/lesson-one-assignment";
+import LessonTwo from "./smooth-animator/lesson-two/lesson-two";
 
 const App = () => {
  return (
@@ -24,7 +25,7 @@ const App = () => {
          <Route path="/speed-graph-visualizer" element={<GSAPSpeedVisualizer />} />
          <Route path="/lesson-one" element={<LessonOne />} />
          <Route path="/lesson-one-assignment" element={<LessonOneAssignment />} />
-        
+         <Route path="/lesson-two" element={<LessonTwo />} />
          <Route path="/cssbattle-aug28" element={<CSSBattleAug28 />} />
 
          <Route path="/gsapto" element={<GsapTo />} />
