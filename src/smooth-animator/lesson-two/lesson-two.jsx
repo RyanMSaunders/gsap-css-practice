@@ -16,18 +16,50 @@ const LessonTwo = () => {
   const pathRef = useRef(null);   // SVG path
 
   useGSAP(() => {
-  const tween1 = gsap.to(squareRef.current, {
-    duration: 5,
-    // repeat: -1,
-    // yoyo: true,
-    motionPath: {
-      path: pathRef.current,
-      align: pathRef.current,
-      alignOrigin: [0.5, 0.5],
-      autoRotate: true
-    },
-    ease: "power1.inOut"
-  });
+  // const tween1 = gsap.to(squareRef.current, {
+  //   duration: 5,
+  //   // repeat: -1,
+  //   // yoyo: true,
+  //   motionPath: {
+  //     path: pathRef.current,
+  //     align: pathRef.current,
+  //     alignOrigin: [0.5, 0.5],
+  //     autoRotate: true
+  //   },
+  //   ease: "power1.inOut"
+  // });
+    timeline.to(squareRef.current, {
+      duration: 2,
+      x: 100,
+      ease: "power1.in"
+    })
+    .to(squareRef.current, {
+      duration: 2,
+      x: 200,
+      ease: "elastic.out(1, 0.3)"
+    })
+    .to(squareRef.current, {
+      duration: 2,
+      x: 500,
+      ease: "bounce.out"
+    })
+    .to(squareRef.current, {
+      duration: 0,
+      x: 400, // instantly jumps here, like Hold in AE
+      y: 150
+    })
+    gsap.to(squareRef.current, {
+      duration: 5,
+      motionPath: {
+        path: pathRef.current,
+        align: pathRef.current,
+        alignOrigin: [0.5, 0.5],
+        autoRotate: true,
+        end: 0.5 // move only halfway through the path
+      },
+      ease: "none"
+    });
+
     // timeline.to(`.${styles.square}`, {
     //   x: 250,
     //   y: 250,
@@ -39,7 +71,7 @@ const LessonTwo = () => {
     // });
 
   // Create helper AFTER the tween
-  MotionPathHelper.create(tween1);
+  // MotionPathHelper.create(tween1);
   });
  
   return (
@@ -52,14 +84,14 @@ const LessonTwo = () => {
         <article className={`${styles.molecule} ${styles.middle}`}>
           <div className={`${styles.atom} ${styles.ml}`}></div>
           <div className={`${styles.atom} ${styles.mc}`}>
-            <svg viewBox="0 0 500 200" className={styles.svg}>
+            {/* <svg viewBox="0 0 500 200" className={styles.svg}>
               <path
                 ref={pathRef} // attach ref here
                 d="M50,150 C80,120 115.984,43.973 142.388,19.273 166.37433,5.671 190.36067,-7.931 214.347,-21.533 234.14733,1.56133 253.94767,24.65567 273.748,47.75 274.73735,56.25535 275.7267,64.7607 276.71605,73.26605 231.56303,101.60837 122.444,97.061 141.257,158.293 184.011,213.44 239.40487,124.00299 288.47881,106.85798 316.73287,96.98665 344.98694,87.11533 373.241,77.244 386.92733,89.596 400.61367,101.948 414.3,114.3 426.2,126.2 438.1,138.1 450,150 "
                 fill="none"
                 stroke="black" // visible during development
               />
-            </svg>
+            </svg> */}
             <div className={styles.square} ref={squareRef}>
               
             </div>
