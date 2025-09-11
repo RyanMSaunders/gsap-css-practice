@@ -62,7 +62,9 @@
  background-color: #7C7565;
  position: absolute;
 } 
-
+/* .svg.path1 {
+  z-index: -1;
+} */
 
 /* .atom.mc {
   position: relative;
