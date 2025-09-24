@@ -17,6 +17,7 @@ import GSAPSpeedVisualizer from "./smooth-animator/speed-graph-visualizer/speedG
 import LessonOneAssignment from "./smooth-animator/lesson-one-assignment/lesson-one-assignment";
 import LessonTwo from "./smooth-animator/lesson-two/lesson-two";
 import LessonTwoAssignment from "./smooth-animator/lesson-two-assignment/lesson-two-assignment";
+import BgPattern from "./smooth-animator/bg-pattern/bg-pattern";
 
 const App = () => {
  return (
@@ -29,6 +30,7 @@ const App = () => {
          <Route path="/lesson-two" element={<LessonTwo />} />
           <Route path="/lesson-two-assignment" element={<LessonTwoAssignment />} />
          <Route path="/cssbattle-aug28" element={<CSSBattleAug28 />} />
+         <Route path="/bg-pattern" element={<BgPattern/>}></Route>
 
          <Route path="/gsapto" element={<GsapTo />} />
          <Route path="/gsapfrom" element={<GsapFrom />} />

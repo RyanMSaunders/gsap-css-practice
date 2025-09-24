@@ -49,6 +49,11 @@ const animations = [
    path: "/cssbattle-aug28",
  },
  {
+   title: "bg pattern",
+   description: "GSAP CSS Practice.",
+   path: "/bg-pattern",
+ },
+ {
    title: "Smooth Animator Speed Graph Visualizer",
    description: "Learn how to animate with GSAP.",
    path: "/speed-graph-visualizer",
