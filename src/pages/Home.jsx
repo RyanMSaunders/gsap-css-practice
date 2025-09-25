@@ -78,6 +78,16 @@ const animations = [
    description: "Learn how to animate with GSAP.",
    path: "/lesson-two-assignment",
  },
+ {
+   title: "Smoth Animator Lesson 3",
+   description: "Learn how to animate with GSAP.",
+   path: "/lesson-three",
+ },
+ {
+   title: "Smoth Animator Lesson 3 Assignment",
+   description: "Learn how to animate with GSAP.",
+   path: "/lesson-three-assignment",
+ },
 ];
 
 const Home = () => {

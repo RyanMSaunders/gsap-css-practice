@@ -1,0 +1,93 @@
+/* LessonOne.module.css */
+.page {
+ box-sizing: border-box;
+ margin: 0;
+ display: flex;
+ height: 100vh;
+ width: 100vw;
+}
+
+.organism {
+ flex-basis: 100%;
+ display: flex;
+ flex-direction: column;
+}
+
+.molecule.top {
+ flex-basis: 12.5%;
+ display: flex;
+ flex-direction: row;
+}
+
+.molecule.middle {
+ flex-basis: 100%;
+ display: flex;
+ flex-direction: row;
+}
+
+.molecule.bottom {
+ flex-basis: 12.5%;
+ display: flex;
+ flex-direction: row;
+}
+
+.atom.tl {
+ background-color: #F1E1BE;
+ flex-basis: 100%;
+}
+
+.atom.tr {
+ background-color: #F1E1BE;
+ flex-basis: 100%;
+}
+
+.atom.ml {
+ background-color: #F1E1BE;
+ flex-basis: 27.1%;
+}
+
+.atom.mc {
+ background-color: #F1E1BE;
+ flex-basis: 100%;
+ display: flex;
+ flex-direction: column-reverse;
+ justify-content: flex-start;
+}
+
+.square {
+ aspect-ratio: 1 / 1;
+ width: 15%;
+ background: linear-gradient(45deg,#FF5B38, #FFFF00 );
+}
+
+
+.atom.mr {
+ background-color: #F1E1BE;
+ flex-basis: 27.1%;
+}
+
+.atom.bl {
+ background-color: #7C7565;
+ flex-basis: 100%;
+}
+
+.atom.br {
+ background-color: #7C7565;
+ flex-basis: 100%;
+}
+
+/* Debug borders (uncommented if needed) */
+/*
+.page {
+ border: 4px solid darkblue;
+}
+.organism {
+ border: 4px solid darkgreen;
+}
+.molecule {
+ border: 4px solid yellow;
+}
+.atom {
+ border: 4px solid orange;
+}
+*/

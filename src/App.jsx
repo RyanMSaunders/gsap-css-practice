@@ -18,6 +18,8 @@ import LessonOneAssignment from "./smooth-animator/lesson-one-assignment/lesson-
 import LessonTwo from "./smooth-animator/lesson-two/lesson-two";
 import LessonTwoAssignment from "./smooth-animator/lesson-two-assignment/lesson-two-assignment";
 import BgPattern from "./smooth-animator/bg-pattern/bg-pattern";
+import LessonThree from "./smooth-animator/lesson-three/lesson-three";
+import LessonThreeAssignment from "./smooth-animator/lesson-three-assignment/lesson-three-assignment";
 
 const App = () => {
  return (
@@ -29,6 +31,8 @@ const App = () => {
          <Route path="/lesson-one-assignment" element={<LessonOneAssignment />} />
          <Route path="/lesson-two" element={<LessonTwo />} />
           <Route path="/lesson-two-assignment" element={<LessonTwoAssignment />} />
+          <Route path="/lesson-three" element={<LessonThree />} />
+          <Route path="/lesson-three-assignment" element={<LessonThreeAssignment />} />
          <Route path="/cssbattle-aug28" element={<CSSBattleAug28 />} />
          <Route path="/bg-pattern" element={<BgPattern/>}></Route>
 
