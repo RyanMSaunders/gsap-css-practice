@@ -5,6 +5,30 @@ import styles from "./bg-pattern.module.css";
 
 
 const BgPattern = () => {
+//   useGSAP(() => {
+//   const centerX = window.innerWidth / 2;
+//   const centerY = window.innerHeight / 2;
+
+//   gsap.to(`.${styles.square}`, {
+//     x: (i, el) => {
+//       const rect = el.getBoundingClientRect();
+//       const squareCenterX = rect.left + rect.width / 2;
+//       return centerX - squareCenterX;
+//     },
+//     y: (i, el) => {
+//       const rect = el.getBoundingClientRect();
+//       const squareCenterY = rect.top + rect.height / 2;
+//       return centerY - squareCenterY;
+//     },
+//     rotation: 360,
+//     borderRadius: "100%",
+//     duration: 3,
+//     repeat: -1,
+//     yoyo: true,
+//     ease: "power2.inOut"
+//   });
+// });
+
   useGSAP(() => {
     gsap.to(`.${styles.square}`, {
       x: "500px",
@@ -13,30 +37,30 @@ const BgPattern = () => {
       duration: 3,
       repeat: -1,
       yoyo: true,
-//       stagger: {
-//   amount: 3,
+      stagger: {
+  amount: 3,
   
 //   // Start from the first element (default)
-//   // from: "start",
+  from: "start",
 
 //   // Start from the last element
 //   // from: "end",
 
 //   // Start from the middle element and move outward
-//   // from: "center",
+  // from: "center",
 
-//   // Start from the outer edges and move inward
-//   // from: "edges",
+ // Start from the outer edges and move inward
+  // from: "edges",
 
 //   // Randomize start times for each element
 //   // from: "random",
 
 //   // Use a specific numeric index (0-based)
-//   // from: 5,  // starts stagger from the 6th element
+  // from: 5,  // starts stagger from the 6th element
 
 //   // Use a function that returns the starting index
-//   // from: i => i % 2 === 0 ? 0 : 10
-// }
+  // from: i => i % 2 === 0 ? 0 : 10
+}
     });
   });
 

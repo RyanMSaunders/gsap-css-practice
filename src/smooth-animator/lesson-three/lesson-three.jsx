@@ -1,35 +1,51 @@
-import { useRef } from "react";
+
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import styles from "./lesson-three.module.css";
 
 
 const LessonThree = () => {
-  const squareRef = useRef(null);
+  // const tl = gsap.timeline({repeat: -1, yoyo: true});
 
-  useGSAP(() => {
-    const square = squareRef.current;
-    const size = square.offsetWidth; // dynamically measured size (px)
-    const tl = gsap.timeline({yoyo: true});
+  // useGSAP(() => {
 
-   tl.to(`.${styles.square}`, {
-     rotation: 90,
-     x: `+=${size}`,
-     transformOrigin: "right bottom",
-     duration: 3, 
-    //  repeat: -1, 
-    //  yoyo: true, 
-   });
-   tl.to(`.${styles.square}`, {
-     rotation: 90,
-     x: `+=${size}`,
-     transformOrigin: "right bottom",
-     duration: 3, 
-    //  repeat: -1, 
-    //  yoyo: true, 
-   });
+  //  tl.to(`.${styles.square}`, {
+  //    rotation: 90,
+  //    transformOrigin: "right bottom",
+  //    duration: 3, 
+  //   //  repeat: -1, 
+  //   //  yoyo: true, 
+  //  });
+  // //  tl.set(`.${styles.square}`, {
+  // //   x: "500px"
+  // //  });
+  //  tl.to(`.${styles.square}`, {
+  //    rotation: 180,
+  //    transformOrigin: "left bottom",
+  //    duration: 3, 
+  //   //  repeat: -1, 
+  //   //  yoyo: true, 
+  //  });
    
-  });
+  // });
+  useGSAP(() => {
+  const sq = document.querySelector(`.${styles.square}`);
+  const rect = sq.getBoundingClientRect();
+  const step = Math.round(rect.width); // distance to move each 90deg
+
+  gsap.set(sq, { rotation: 0, x: 0, transformOrigin: "center center", willChange: "transform" });
+
+  const tl = gsap.timeline({ repeat: -1 });
+  for (let i = 0; i < 4; i++) {
+    tl.to(sq, {
+      rotation: "+=90",
+      x: `+=${step}`,
+      duration: 0.6,
+      ease: "power1.inOut"
+    });
+  }
+});
+
  
   return (
     <div className={styles.page}>
@@ -41,7 +57,8 @@ const LessonThree = () => {
         <article className={`${styles.molecule} ${styles.middle}`}>
           <div className={`${styles.atom} ${styles.ml}`}></div>
           <div className={`${styles.atom} ${styles.mc}`}>
-            <div ref={squareRef} className={styles.square}>
+
+            <div className={styles.square}>
               
             </div>
           </div>

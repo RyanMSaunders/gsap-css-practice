@@ -71,8 +71,8 @@
 .square {
  aspect-ratio: 1 / 1;
  width: 15%;
- background-color: #7C7565;
-  /* background-color: red; */
+ /* background-color: #7C7565; */
+  background-color: red;
 
 }
 
