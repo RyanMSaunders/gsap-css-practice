@@ -6,6 +6,7 @@ import { useGSAP } from "@gsap/react";
 import styles from "./lesson-three.module.css";
 import { Physics2DPlugin } from "../../../gsap-public/src/Physics2DPlugin";
 import { CSSPlugin } from "../../../gsap-public/src/CSSPlugin";
+import { CustomEase } from "gsap/all";
 
 gsap.registerPlugin(CSSPlugin); 
 
@@ -17,42 +18,46 @@ CSSPlugin.defaultSmoothOrigin = true;
 
 const LessonThree = () => {
   
-  useGSAP(() => {
-    const tl = gsap.timeline({ repeat: -1, yoyo: true })
+//   useGSAP(() => {
+//     const tl = gsap.timeline({ repeat: -1, yoyo: true })
   
-  tl.to(`.${styles.rect}`, {
-    duration: 2,
-    rotation: "+=90",
-    smoothOrigin: true,
-    transformOrigin: "right bottom",
-    // repeat: -1,
-    ease: "power1.inOut"
-  })
-  .to(`.${styles.rect}`, {
-    duration: 2,
-    rotation: "+=90",
-    // smoothOrigin: true,
-    transformOrigin: "right top",
-    // repeat: -1,
-    ease: "power1.inOut"
-  })
-  .to(`.${styles.rect}`, {
-    duration: 2,
-    rotation: "+=90",
-    // smoothOrigin: true,
-    transformOrigin: "left top",
-    // repeat: -1,
-    ease: "power1.inOut"
-  })
-  .to(`.${styles.rect}`, {
-    duration: 2,
-    rotation: "+=90",
-    // smoothOrigin: true,
-    transformOrigin: "left bottom",
-    // repeat: -1,
-    ease: "power1.inOut"
-  });
-});
+//   tl.to(`.${styles.rect}`, {
+//     duration: 2,
+//     rotation: "+=90",
+//     smoothOrigin: true, // says "use the Origin from the visual space, not from where it started"
+//     transformOrigin: "right bottom",
+//     // repeat: -1,
+//     ease: CustomEase.create("custom", "M0,0 C0.953,0 0.98,0.844 1,1 "),
+//     yoyoEase: true
+//   })
+//   .to(`.${styles.rect}`, {
+//     duration: 2,
+//     rotation: "+=90",
+//     // smoothOrigin: true,
+//     transformOrigin: "right top",
+//     // repeat: -1,
+//     ease: CustomEase.create("custom", "M0,0 C0.953,0 0.98,0.844 1,1 "),
+//     yoyoEase: true
+//   })
+//   .to(`.${styles.rect}`, {
+//     duration: 2,
+//     rotation: "+=90",
+//     // smoothOrigin: true,
+//     transformOrigin: "left top",
+//     // repeat: -1,
+//     ease: CustomEase.create("custom", "M0,0 C0.953,0 0.98,0.844 1,1 "),
+//     yoyoEase: true
+//   })
+//   .to(`.${styles.rect}`, {
+//     duration: 2,
+//     rotation: "+=90",
+//     // smoothOrigin: true,
+//     transformOrigin: "left bottom",
+//     // repeat: -1,
+//     ease: CustomEase.create("custom", "M0,0 C0.953,0 0.98,0.844 1,1 "),
+//     yoyoEase: true
+//   });
+// });
 
  
   return (
@@ -73,6 +78,10 @@ const LessonThree = () => {
                   <stop offset="0%" stopColor="#FF5B38" />
                   <stop offset="100%" stopColor="#FFFF00" />
                 </linearGradient>
+                <radialGradient id="circleGradient" cx="0%" cy="5%" r="100%">
+                  <stop offset="0%" stopColor="#FFE7FF" />
+                  <stop offset="100%" stopColor="#531DA0" />
+                </radialGradient>
               </defs>
               <rect
                 className={styles.rect}
@@ -81,21 +90,21 @@ const LessonThree = () => {
                 width="100"
                 height="100"
                 fill="url(#rollingSquareGradient)" 
-                stroke="rgb(0, 0, 0)"
-                strokeWidth="4"
+                stroke="#FF5B38"
+                strokeWidth="0.3"
               />
-              {/* <rect
-                className={styles.rect}
-                x="0"
-                y="0"
-                width="200"
-                height="200"
-                style={{
-                  fill: "rgb(216, 216, 216)",
-                  stroke: "rgb(0, 0, 0)",
-                  strokeWidth: "4"
-                }}
-              /> */}
+              < circle
+                className={styles.circle}
+                cx="95"
+                cy="185"
+                r="15"
+                // width="100"
+                // height="100"
+                fill="url(#circleGradient)" 
+               
+               />
+    
+              
             </svg>
 
               
