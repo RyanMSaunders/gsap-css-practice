@@ -82,6 +82,21 @@ const LessonThree = () => {
                   <stop offset="0%" stopColor="#FFE7FF" />
                   <stop offset="100%" stopColor="#531DA0" />
                 </radialGradient>
+                <filter id="inset-shadow" x="-50%" y="-50%" width="200%" height="200%">
+                  <feComponentTransfer in="SourceAlpha">
+                    <feFuncA type="table" tableValues="1 0" />
+                  </feComponentTransfer>
+                  <feGaussianBlur stdDeviation="4"/>
+                  <feOffset dx="0" dy="0" result="offsetblur"/>
+                  <feFlood flood-color="rgb(0, 0, 0)" result="color"/>
+                  <feComposite in2="offsetblur" operator="in"/>
+                  <feComposite in2="SourceAlpha" operator="in" />
+                  <feMerge>
+                    <feMergeNode in="SourceGraphic" />
+                    <feMergeNode />
+                  </feMerge>
+                </filter>
+                
               </defs>
               <rect
                 className={styles.rect}
@@ -96,12 +111,12 @@ const LessonThree = () => {
               < circle
                 className={styles.circle}
                 cx="95"
-                cy="185"
-                r="15"
+                cy="100"
+                r="30"
                 // width="100"
                 // height="100"
                 fill="url(#circleGradient)" 
-               
+                filter="url(#inset-shadow)"
                />
     
               
